@@ -1,5 +1,7 @@
 html {
-    background: violet;
+    background-image: url(/img/223952.jpg);
+    background-size: 50%;
+    color: aliceblue;
 }
 ;
 
@@ -13,45 +15,16 @@ body {
     text-align: center;
 }
 
-/* .button {
-    position: absolute;
-    color: darkorange;
-    padding: 25px;
-    /* text-align: inherit; */
-    /* text-decoration: wavy; */
-    /* display: inline-block;
-    font-size: 200px;
-    margin: 10px 10px; */
 
-.alarmclock {
+ .alarmclock{ /* THE CLASS*/
     font-size: xx-large;
 }
 
+.time2 {
+    font-size: xx-large;
+}
 
-/* .button:hover {
+.button:hover {
     background-color: aqua;
     color: olivedrab;
 }
-
-; */
-
-.buttoncenter {
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 60%;
-    left: 50%;
-}
-
-;
-
-.alarmclock {
-
-    top: 55%;
-    left: 50%;
-    color: darkblue;
-    font-size: 75px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-;

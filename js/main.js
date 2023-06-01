@@ -39,22 +39,8 @@ var time2 = month + "/" + day + "/" + year;
 };
 
 currentTime();
-
-let alarmTime;
-
-document.getElementById("setAlarmButton").addEventListener("click", function() {
-    alarmTime = document.getElementById("alarmTime").value;
-
-    function checkAlarm() {
-    const currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-    if (currentTime === alarmTime) {
-        // Alarm time matches current time, play the video
-        const videoPlayer = document.querySelector(".videocontainer iframe");
-        videoPlayer.src += "&autoplay=1"; // Append autoplay parameter to the video URL
-    }
-}
 setInterval(checkAlarm, 1000); //CHECKS THE ALARM IF IT NEEDS TO GO OFF (1000 is milliseconds)
-});
+
 
 
 
