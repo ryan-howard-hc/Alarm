@@ -9,21 +9,28 @@ function currentTime(){
     var session = "AM"; 
     var military = ""; //no am or pm, just a number/date
 
-        if(hour == 0){
+        if(hour == 0){ //AM
             hour = 12;
         }
 
-        if(hour > 12){
+        if(hour > 12){      // If not AM, PM
             hour = hour - 12;
             session = "PM";
         }
 
-    hour = (hour < 10) ? "0" + hour : hour;
+    hour = (hour < 10) ? "0" + hour : hour;             //
     minute = (minute < 10) ? "0" + minute : minute;
     second = (second < 10) ? "0" + second : second;
 
     var time = hour + ":" + minute + ":" + second + " " + session;
-    document.getElementById("Timer")
+    document.getElementById("Timer").innerText = time;
+    document.getElementById("Timer").textContent = time;
+
+    setTimeout(currentTime, 1000);
+
+}
+
+currentTime();
 
 
 
