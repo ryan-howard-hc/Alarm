@@ -27,12 +27,13 @@ function currentTime() {
     month = (month < 10) ? "0" + month : month;
 
 
-var time = hour + ":" + minute + ":" + second + session + " " + month + "/" + day + "/" + year;
-
+var time = hour + ":" + minute + ":" + second + " " + session;
+var time2 = month + "/" + day + "/" + year;
 
     document.getElementById("Timer").innerText = time;
     document.getElementById("Timer").textContent = time;
-
+    document.getElementById("time2").innerText = time2
+    document.getElementById("time2").textContent = time2;
     setTimeout(currentTime, 1000);
 
 };
@@ -43,6 +44,16 @@ let alarmTime;
 
 document.getElementById("setAlarmButton").addEventListener("click", function() {
     alarmTime = document.getElementById("alarmTime").value;
+
+    function checkAlarm() {
+    const currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    if (currentTime === alarmTime) {
+        // Alarm time matches current time, play the video
+        const videoPlayer = document.querySelector(".videocontainer iframe");
+        videoPlayer.src += "&autoplay=1"; // Append autoplay parameter to the video URL
+    }
+}
+setInterval(checkAlarm, 1000); //CHECKS THE ALARM IF IT NEEDS TO GO OFF (1000 is milliseconds)
 });
 
 
