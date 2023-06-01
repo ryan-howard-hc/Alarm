@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +8,28 @@
     <link rel="stylesheet" href="css/stylesheet.css">
     <title>Document</title>
 </head>
+
 <body>
 
     <h1>ALARMA!!!</h1>
     <p id="Alarm1"></p>
-        <div id="Timer" class="alarmclock" onload="currentTime()"></div>
+        <div class="videocontainer">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fRk7HEnvFPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="buttoncenter">
+            <button id="setAlarmButton">Set Alarm</button>
+            <input type="time" id="alarmTime">
+            <audio id="alarmSound" src=""></audio>
+            </div>
+            
+            <button id="militarytime">MILITARY TIME</button>
+
+    <div id="Timer" class="alarmclock" onload="currentTime()"></div>
 
     <script type="text/javascript" src="js/main.js"></script>
 </body>
+<!-- <div id="Timer" class="alarmclock" onload="currentTime()"></div> -->
 </html>
 
 
 
-//        <div class="buttoncenter">
-//    <button class="button">Set Alarm</button>
-//  </div>
