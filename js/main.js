@@ -9,4 +9,30 @@ function currentTime(){
     var session = "AM"; 
     var military = ""; //no am or pm, just a number/date
 
+        if(h == 0){
+            h = 12;
+        }
+
+        if(h > 12){
+            h = h - 12;
+            session = "PM";
+        }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
