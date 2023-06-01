@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+};
+
+html {
+    background-color: violet;
+    text-align: center
+    
+};
+
+body {
+    background-color: inherit;
+    text-align: inherit;
+};
+
+.button {
+    position: absolute;
+    color: darkorange;
+    padding: 25px;
+    text-align: inherit;
+    text-decoration: wavy;
+    display: inline-block;
+    font-size: 30px;
+    margin: 10px 10px;
+};
+
+.button:hover{
+    background-color: aqua;
+    color: olivedrab;
+};
+
