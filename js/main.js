@@ -9,16 +9,16 @@ function currentTime(){
     var session = "AM"; 
     var military = ""; //no am or pm, just a number/date
 
-        if(h == 0){
-            h = 12;
+        if(hour == 0){
+            hour = 12;
         }
 
-        if(h > 12){
-            h = h - 12;
+        if(hour > 12){
+            hour = hour - 12;
             session = "PM";
         }
 
-    
+    hour = (hour < 10) ? "0" + hour : hour;
 
 
 
