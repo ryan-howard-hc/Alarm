@@ -22,13 +22,13 @@ function currentTime(){
     minute = (minute < 10) ? "0" + minute : minute;
     second = (second < 10) ? "0" + second : second;
 
-    var time = hour + ":" + minute + ":" + second + " " + session;
+    var time = hour + ":" + minute + ":" + second + " " + session; //Time format, with AM/PM at the end
     document.getElementById("Timer").innerText = time;
     document.getElementById("Timer").textContent = time;
 
     setTimeout(currentTime, 1000);
 
-}
+};
 
 currentTime();
 
@@ -47,4 +47,3 @@ currentTime();
 
 
 
-};
