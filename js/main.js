@@ -1,18 +1,3 @@
-document.getElementById("setAlarmButton").addEventListener("click", function() {
-    var alarmTime = document.getElementById("alarmTime").value;
-
-    function checkAlarm() {
-        var currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-        if (currentTime === alarmTime) {
-            // Alarm time matches current time, play the alarm sound
-            var alarmSound = document.getElementById("alarmSound");
-            alarmSound.play();
-        }
-    }
-
-    setInterval(checkAlarm, 1000); // Check the alarm every second
-});
-
 
 function currentTime() {
     var date = new Date();
@@ -56,10 +41,7 @@ var time2 = month + "/" + day + "/" + year;
 
 currentTime();
 
-
-
-
-
+setInterval(playAudio, 1000);
 
 
 
