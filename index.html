@@ -16,15 +16,27 @@
         <div class="videocontainer">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/fRk7HEnvFPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <div class="buttoncenter">
-            <button id="setAlarmButton">Set Alarm</button>
-            <input type="time" id="alarmTime">
-            <audio id="alarmSound" src=""></audio>
+            <div class="buttoncenter">
+                <button id="setAlarmButton">Set Alarm</button>
+                <input type="time" id="alarmTime">
+
+                <br>
+            
+                <br>
+
+                <audio id="alarmSound" src=""></audio>
+
             </div>
             
             <button id="militarytime">MILITARY TIME</button>
 
     <div id="Timer" class="alarmclock" onload="currentTime()"></div>
+
+    <br>
+
+    <div id="time2" class="time2" onload="currentTime(time2)"></div> 
+           <!-- ^ calendar date ^ -->
+
 
     <script type="text/javascript" src="js/main.js"></script>
 </body>
