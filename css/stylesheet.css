@@ -23,8 +23,3 @@ body {
 .time2 {
     font-size: xx-large;
 }
-
-.button:hover {
-    background-color: aqua;
-    color: olivedrab;
-}
