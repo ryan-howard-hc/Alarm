@@ -1,73 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/stylesheet.css">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <title>Document</title>
+    </head>
 
-<body>
+    <body>
 
-    <h1>ALARMA!!!</h1>
-    <p id="Alarm1"></p>
+        <h1>ALARMA!!!</h1>
+        <p id="Alarm1"></p>
         <div class="videocontainer">
-        
+
+            <br>
+            <button onclick="setAlarmTime()" class="setAlarmButton" id="setAlarmButton">Set Alarm</button>
+
+            <input type="time" id="alarmTime">
+
+            <br>
+
+        </div>
+
+        <button id="militarytime">MILITARY TIME</button>
+
+        <div id="Timer" class="timer" onload="currentTime(time)"></div>
+
+
         <br>
-                <button onclick="setAlarmTime()" class="setAlarmButton" id="setAlarmButton">Set Alarm</button>
 
-                <input type="time" id="alarmTime">
-            
-                <br>
-
-            </div>
-            
-            <button id="militarytime">MILITARY TIME</button>
-
-    <div id="Timer" class="timer" onload="currentTime(time)"></div>
+        <div id="time2" class="time2" onload="currentTime(time2)"></div>
+        <!-- ^ calendar date ^ -->
 
 
-    <br>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script>
+            function setAlarmTime() { 
+                // ^ alarm button function ^
+                var alarmInput = document.getElementById("alarmTime").value;
 
-    <div id="time2" class="time2" onload="currentTime(time2)"></div> 
-           <!-- ^ calendar date ^ -->
+                if (alarmInput === "") {
+                    alert("Please enter a valid alarm time.");
+                    return;
+                }
+                //
+                var alarmTime = new Date();
+                var [hours, minutes] = alarmInput.split(":");
+                alarmTime.setHours(hours);
+                alarmTime.setMinutes(minutes);
+                alarmTime.setSeconds(0);
+
+                var interval = setInterval(function () {
+                    var currentTime = new Date();
+
+                    if (currentTime >= alarmTime) {
+                        clearInterval(interval);
+                        alert("Alarm!");
+                    }
+                }, 1000);
+
+                alert("Alarm set for: " + alarmInput);
+            }
+        </script>
 
 
-    <script type="text/javascript" src="js/main.js"></script>
-    <script>
-function setAlarmTime() {
-    var alarmInput = document.getElementById("alarmTime").value;
-    
-    if (alarmInput === "") {
-        alert("Please enter a valid alarm time.");
-        return;
-    }
-
-    var alarmTime = new Date();
-    var [hours, minutes] = alarmInput.split(":");
-    alarmTime.setHours(hours);
-    alarmTime.setMinutes(minutes);
-    alarmTime.setSeconds(0);
-
-    var interval = setInterval(function() {
-        var currentTime = new Date();
-        
-        if (currentTime >= alarmTime) {
-            clearInterval(interval);
-            alert("Alarm!");
-        }
-    }, 1000);
-
-    alert("Alarm set for: " + alarmInput);
-}
-    </script>
-        
-    
-</body>
-<!-- <div id="Timer" class="alarmclock" onload="currentTime()"></div> -->
+    </body>
+    <!-- <div id="Timer" class="alarmclock" onload="currentTime()"></div> -->
 </html>
-
-
-
