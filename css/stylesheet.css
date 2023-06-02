@@ -16,13 +16,13 @@ body {
 }
 
 
- .timer{ /* THE CLASS*/
+ .timer{ /* THE CLASS FOR TIME*/
     font-size: 200px;
     font-family: fantasy;
     letter-spacing: 25px;
 }
 
-.time2 {
+.time2 { /*THE CLASS FOR DATE*/
     font-size: 100px;
     color: rgb(255, 221, 0);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
