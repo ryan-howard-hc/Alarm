@@ -41,7 +41,7 @@ var time2 = month + "/" + day + "/" + year;
 
 currentTime();
 
-setInterval(playAudio, 1000);
+setInterval(1000);
 
 document.getElementById("setAlarmButton").addEventListener("click", function() {
 

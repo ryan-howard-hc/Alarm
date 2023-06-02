@@ -40,7 +40,7 @@
             function setAlarmTime() { 
                 // ^ alarm button function ^
                 var alarmInput = document.getElementById("alarmTime").value;
-
+                //
                 if (alarmInput === "") {
                     alert("Please enter a valid alarm time.");
                     return;
@@ -48,6 +48,7 @@
                 //
                 var alarmTime = new Date();
                 var [hours, minutes] = alarmInput.split(":");
+                // ^ NEED EXPLANATION ^
                 alarmTime.setHours(hours);
                 alarmTime.setMinutes(minutes);
                 alarmTime.setSeconds(0);
