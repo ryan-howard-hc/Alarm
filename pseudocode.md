@@ -32,10 +32,15 @@ Create an alarm clock from scratch that runs all the time without refreshing
 ## Functional
 - var date: serves as the base variable for date function. [^1]
     [^1]:var year, var month, var day, var hour, var minute, var second
+
 - var time: Serves as the variable for the "Timer" function that displays the current time and AM/PM[^1]
     [^1]:var session: variable for AM/PM function
+
 - var time2: Variable for the "time2" function that displays the date
+
 - var alarmInput: Variable for combining the time input[^1], time tracking interval, and alert variable 
     [^1]: input type="time" id="alarmTime" which creates the input time box
+
 - if (currentTime >= alarmTime): Trigger mechanism
+
 - if (alarmInput === ""): Feedback if no time is entered
