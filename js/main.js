@@ -43,6 +43,9 @@ currentTime();
 
 setInterval(playAudio, 1000);
 
+document.getElementById("setAlarmButton").addEventListener("click", function() {
+
+})
 
 
 

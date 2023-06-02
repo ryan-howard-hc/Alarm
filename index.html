@@ -14,23 +14,20 @@
     <h1>ALARMA!!!</h1>
     <p id="Alarm1"></p>
         <div class="videocontainer">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/fRk7HEnvFPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-            <div class="buttoncenter">
-                <button id="setAlarmButton">Set Alarm</button>
-                <input type="time" id="alarmTime">
+        
+        <br>
+                <button onclick="setAlarmTime()" class="setAlarmButton" id="setAlarmButton">Set Alarm</button>
 
-                <br>
+                <input type="time" id="alarmTime">
             
                 <br>
-
-                <audio id="alarmSound" src="/black-partridge-male-singing-kala-teetar-ki-awaz-8605.mp3"></audio>
 
             </div>
             
             <button id="militarytime">MILITARY TIME</button>
 
-    <div id="Timer" class="alarmclock" onload="currentTime(time)"></div>
+    <div id="Timer" class="timer" onload="currentTime(time)"></div>
+
 
     <br>
 
@@ -39,6 +36,35 @@
 
 
     <script type="text/javascript" src="js/main.js"></script>
+    <script>
+function setAlarmTime() {
+    var alarmInput = document.getElementById("alarmTime").value;
+    
+    if (alarmInput === "") {
+        alert("Please enter a valid alarm time.");
+        return;
+    }
+
+    var alarmTime = new Date();
+    var [hours, minutes] = alarmInput.split(":");
+    alarmTime.setHours(hours);
+    alarmTime.setMinutes(minutes);
+    alarmTime.setSeconds(0);
+
+    var interval = setInterval(function() {
+        var currentTime = new Date();
+        
+        if (currentTime >= alarmTime) {
+            clearInterval(interval);
+            alert("Alarm!");
+        }
+    }, 1000);
+
+    alert("Alarm set for: " + alarmInput);
+}
+    </script>
+        
+    
 </body>
 <!-- <div id="Timer" class="alarmclock" onload="currentTime()"></div> -->
 </html>
