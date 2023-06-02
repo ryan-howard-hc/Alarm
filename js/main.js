@@ -1,4 +1,5 @@
 
+
 function currentTime() {
     var date = new Date();
     var year = date.getFullYear();
@@ -28,8 +29,8 @@ function currentTime() {
     month = (month < 10) ? "0" + month : month;
 
 
-var time = hour + ":" + minute + ":" + second + " " + session;
-var time2 = month + "/" + day + "/" + year;
+    var time = hour + ":" + minute + ":" + second + " " + session;
+    var time2 = month + "/" + day + "/" + year;
 
     document.getElementById("Timer").innerText = time;
     document.getElementById("Timer").textContent = time;
@@ -44,12 +45,34 @@ currentTime();
 setInterval(1000);
 
 document.getElementById("setAlarmButton").addEventListener("click", function() {
-
-document.getElementById("militarytime").addEventListener("click", function() {
-        toggleMilitaryTime();
-    });
     
 })
+
+document.getElementById("militarytime").addEventListener("click", function() {
+    toggleMilitaryTime();
+});
+
+function toggleMilitaryTime() {
+    var timerElement = document.getElementById("Timer");
+    var time = timerElement.textContent;
+
+    var militaryTime = convertToMilitaryTime(time);
+    timerElement.innerText = militaryTime;
+}
+
+function convertToMilitaryTime(time) {
+    var session = time.slice(-2);
+    var timeWithoutSession = time.slice(0, -3);
+    var [hour, minute, second] = timeWithoutSession.split(":");
+
+    if (session === "PM" && hour !== "12") {
+        hour = String(Number(hour) + 12);
+    } else if (session === "AM" && hour === "12") {
+        hour = "00";
+    }
+
+    return hour + ":" + minute + ":" + second;
+}
 
 
 
