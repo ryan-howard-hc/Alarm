@@ -35,19 +35,19 @@
         <!-- ^ calendar date ^ -->
         <br>
         <!-- <div id="analogClock" style="display: none;">
-            <div id="clock">
-              <div id="hourHand"></div>
-              <div id="minuteHand"></div>
-              <div id="secondHand"></div>
-            </div>
-          </div> -->
-          
-          <button id="toggleAnalogClock">Toggle Analog Clock</button>
+                            <div id="clock">
+                              <div id="hourHand"></div>
+                              <div id="minuteHand"></div>
+                              <div id="secondHand"></div>
+                            </div>
+                          </div> -->
+
+        <button id="toggleAnalogClock">Toggle Analog Clock</button>
+        <audio id="alarmSound" src="/img/black-partridge-male-singing-kala-teetar-ki-awaz-8605.mp3"></audio>
 
         <script type="text/javascript" src="js/main.js"></script>
         <script>
-            function setAlarmTime() { 
-                // ^ alarm button function ^
+            function setAlarmTime() { // ^ alarm button function ^
                 var alarmInput = document.getElementById("alarmTime").value;
                 //
                 if (alarmInput === "") {
@@ -68,13 +68,16 @@
                     if (currentTime >= alarmTime) {
                         clearInterval(interval);
                         alert("Alarm!");
+                        playAlarmSound(); // plays sound?
                     }
                 }, 1000);
 
                 alert("Alarm set for: " + alarmInput);
             }
-
-            
+            function playAlarmSound() {
+                var alarmSound = document.getElementById("alarmSound");
+                alarmSound.play();
+            }
         </script>
 
 
