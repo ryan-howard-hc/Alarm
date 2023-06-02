@@ -45,7 +45,13 @@ setInterval(1000);
 
 document.getElementById("setAlarmButton").addEventListener("click", function() {
 
+document.getElementById("militarytime").addEventListener("click", function() {
+        toggleMilitaryTime();
+    });
+    
 })
+
+
 
 
 
