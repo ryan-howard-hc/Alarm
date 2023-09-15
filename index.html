@@ -17,31 +17,31 @@
 
             <br>
             <button onclick="setAlarmTime()" class="setAlarmButton" id="setAlarmButton">Set Alarm</button>
-            <button onclick="stopAlarmSound()" id="stopAlarmButton">Stop Alarm</button>
 
             <input type="time" id="alarmTime">
 
             <br>
 
         </div>
+        <div>
+            <button onclick="stopAlarmSound()" id="stopAlarmButton">Stop Alarm</button>
+        </div>
 
         <button id="militarytime">FREEDOM TIME</button>
 
-        <div id="Timer" class="timer" onload="currentTime(time)"></div>
-
-
-        <br>
-
-        <div id="time2" class="time2" onload="currentTime(time2)"></div>
+        <div class="clock-container">
+            <div id="Timer" class="timer" onload="currentTime(time)"></div>
+            <div id="time2" class="time2" onload="currentTime(time2)"></div>
+        </div>
         <!-- ^ calendar date ^ -->
         <br>
         <!-- <div id="analogClock" style="display: none;">
-                            <div id="clock">
-                              <div id="hourHand"></div>
-                              <div id="minuteHand"></div>
-                              <div id="secondHand"></div>
-                            </div>
-                          </div> -->
+                                    <div id="clock">
+                                      <div id="hourHand"></div>
+                                      <div id="minuteHand"></div>
+                                      <div id="secondHand"></div>
+                                    </div>
+                                  </div> -->
 
         <button id="toggleAnalogClock">Toggle Analog Clock</button>
         <audio id="alarmSound" src="/img/black-partridge-male-singing-kala-teetar-ki-awaz-8605.mp3"></audio>
@@ -58,7 +58,6 @@
                 //
                 var alarmTime = new Date();
                 var [hours, minutes] = alarmInput.split(":");
-                // ^ NEED EXPLANATION ^
                 alarmTime.setHours(hours);
                 alarmTime.setMinutes(minutes);
                 alarmTime.setSeconds(0);
@@ -76,17 +75,17 @@
                 alert("Alarm set for: " + alarmInput);
             }
             function playAlarmSound() {
-    alarmSound.play();
-    isAlarmPlaying = true;
-    console.log("Alarm started playing.");
-}
+                alarmSound.play();
+                isAlarmPlaying = true;
+                console.log("Alarm started playing.");
+            }
 
-function stopAlarmSound() {
-    alarmSound.pause();
-    alarmSound.currentTime = 0;
-    isAlarmPlaying = false;
-    console.log("Alarm stopped.");
-}
+            function stopAlarmSound() {
+                alarmSound.pause();
+                alarmSound.currentTime = 0;
+                isAlarmPlaying = false;
+                console.log("Alarm stopped.");
+            }
         </script>
 
 
