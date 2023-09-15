@@ -1,3 +1,5 @@
+
+
 function adjustClockSize() {
     var clockContainer = document.querySelector('.clock-container');
     var timer = document.getElementById('Timer');
@@ -26,6 +28,26 @@ function snoozeAlarm() {
         }, 300000); 
     }
 }
+
+
+
+var isAnalogClockVisible = false; 
+
+function toggleAnalogClock() {
+    var analogClock = document.getElementById('analogClock');
+    var digitalClock = document.getElementById('Timer');
+
+    if (isAnalogClockVisible) {
+        analogClock.style.display = 'none';
+        digitalClock.style.display = 'block';
+    } else {
+        digitalClock.style.display = 'none';
+        analogClock.style.display = 'block';
+    }
+
+    isAnalogClockVisible = !isAnalogClockVisible; 
+}
+
 
 function currentTime() {
     var date = new Date();
@@ -102,11 +124,8 @@ function convertToMilitaryTime(time) {
 }
 
 
+console.log("Script loaded");
 
-
-
-
-
-
-
-
+document.getElementById("toggleAnalogClock").addEventListener("click", function() {
+    toggleAnalogClock();
+});

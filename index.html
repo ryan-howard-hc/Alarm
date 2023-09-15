@@ -6,47 +6,53 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/stylesheet.css">
-        
+
         <title>Document</title>
     </head>
 
     <body>
-        <div class="clock" >
-        <p id="Alarm1"></p>
-        <div class="videocontainer">
+        <div class="clock">
+            <p id="Alarm1"></p>
+            <div class="videocontainer">
 
+                <br>
+                <button onclick="setAlarmTime()" class="setAlarmButton" id="setAlarmButton">Set Alarm</button>
+
+                <input type="time" id="alarmTime">
+
+                <br>
+
+            </div>
+            <div>
+                <button onclick="stopAlarmSound()" id="stopAlarmButton">Stop Alarm</button>
+                <button onclick="snoozeAlarm()" id="snoozeAlarmButton">Snooze (5 min)</button>
+
+            </div>
+
+            <button id="militarytime">FREEDOM TIME</button>
+
+            <div class="clock-container" style="background-color: rgba(0, 0, 0, 0.7); padding: 10px;">
+                <div id="Timer" class="timer" onload="currentTime(time)"></div>
+                <div id="time2" class="time2" onload="currentTime(time2)"></div>
+            </div>
+            <!-- ^ calendar date ^ -->
             <br>
-            <button onclick="setAlarmTime()" class="setAlarmButton" id="setAlarmButton">Set Alarm</button>
-
-            <input type="time" id="alarmTime">
-
-            <br>
-
+            <!-- <div id="analogClock" style="display: none;">
+                                                <div id="clock">
+                                                  <div id="hourHand"></div>
+                                                  <div id="minuteHand"></div>
+                                                  <div id="secondHand"></div>
+                                                </div>
+                                              </div> -->
+                                              <div id="analogClock" style="display: none;">
+                                                <div id="clock">
+                                                    <div id="hourHand"></div>
+                                                    <div id="minuteHand"></div>
+                                                    <div id="secondHand"></div>
+                                                </div>
+                                            </div>
+            <button id="toggleAnalogClock">Toggle Analog Clock</button>
         </div>
-        <div>
-            <button onclick="stopAlarmSound()" id="stopAlarmButton">Stop Alarm</button>
-            <button onclick="snoozeAlarm()" id="snoozeAlarmButton">Snooze (5 min)</button>
-
-        </div>
-
-        <button id="militarytime">FREEDOM TIME</button>
-
-        <div class="clock-container" style="background-color: rgba(0, 0, 0, 0.7); padding: 10px;">
-            <div id="Timer" class="timer" onload="currentTime(time)"></div>
-            <div id="time2" class="time2" onload="currentTime(time2)"></div>
-        </div>
-        <!-- ^ calendar date ^ -->
-        <br>
-        <!-- <div id="analogClock" style="display: none;">
-                                    <div id="clock">
-                                      <div id="hourHand"></div>
-                                      <div id="minuteHand"></div>
-                                      <div id="secondHand"></div>
-                                    </div>
-                                  </div> -->
-
-        <button id="toggleAnalogClock">Toggle Analog Clock</button>
-    </div>
         <audio id="alarmSound" src="/img/black-partridge-male-singing-kala-teetar-ki-awaz-8605.mp3"></audio>
 
         <script type="text/javascript" src="js/main.js"></script>
