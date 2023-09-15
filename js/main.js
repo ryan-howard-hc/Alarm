@@ -3,21 +3,15 @@ function adjustClockSize() {
     var timer = document.getElementById('Timer');
     var time2 = document.getElementById('time2');
 
-    // Adjust font size based on window width
     var windowWidth = window.innerWidth;
     
-    // Calculate a font size based on a percentage of the window width
-    var fontSizePercentage = (windowWidth < 768) ? 10 : 15; // Adjust as needed
+    var fontSizePercentage = (windowWidth < 768) ? 10 : 15; 
     
-    // Calculate the actual font size in pixels
     var fontSize = (windowWidth * fontSizePercentage) / 100;
 
-    // Apply the calculated font size to the clock elements
     timer.style.fontSize = fontSize + 'px';
-    time2.style.fontSize = (fontSize / 2) + 'px'; // Adjust the date font size as needed
+    time2.style.fontSize = (fontSize / 2) + 'px'; 
 }
-
-// Call the adjustClockSize function initially and on window resize
 adjustClockSize();
 window.addEventListener('resize', adjustClockSize);
 
