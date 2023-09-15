@@ -17,6 +17,7 @@
 
             <br>
             <button onclick="setAlarmTime()" class="setAlarmButton" id="setAlarmButton">Set Alarm</button>
+            <button onclick="stopAlarmSound()" id="stopAlarmButton">Stop Alarm</button>
 
             <input type="time" id="alarmTime">
 
@@ -75,9 +76,17 @@
                 alert("Alarm set for: " + alarmInput);
             }
             function playAlarmSound() {
-                var alarmSound = document.getElementById("alarmSound");
-                alarmSound.play();
-            }
+    alarmSound.play();
+    isAlarmPlaying = true;
+    console.log("Alarm started playing.");
+}
+
+function stopAlarmSound() {
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+    isAlarmPlaying = false;
+    console.log("Alarm stopped.");
+}
         </script>
 
 
