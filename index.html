@@ -6,12 +6,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/stylesheet.css">
+        
         <title>Document</title>
     </head>
 
     <body>
-
-        <h1>ALARMA!!!</h1>
+        <div class="clock" >
+        <h1 style="font-size: 50px;">ALARMA!!!</h1>
         <p id="Alarm1"></p>
         <div class="videocontainer">
 
@@ -25,6 +26,8 @@
         </div>
         <div>
             <button onclick="stopAlarmSound()" id="stopAlarmButton">Stop Alarm</button>
+            <button onclick="snoozeAlarm()" id="snoozeAlarmButton">Snooze (5 min)</button>
+
         </div>
 
         <button id="militarytime">FREEDOM TIME</button>
@@ -44,6 +47,7 @@
                                   </div> -->
 
         <button id="toggleAnalogClock">Toggle Analog Clock</button>
+    </div>
         <audio id="alarmSound" src="/img/black-partridge-male-singing-kala-teetar-ki-awaz-8605.mp3"></audio>
 
         <script type="text/javascript" src="js/main.js"></script>

@@ -14,7 +14,18 @@ function adjustClockSize() {
 }
 adjustClockSize();
 window.addEventListener('resize', adjustClockSize);
-
+function snoozeAlarm() {
+    if (isAlarmPlaying) {
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        isAlarmPlaying = false;
+        console.log("Alarm snoozed for 5 minutes.");
+        
+        setTimeout(function () {
+            playAlarmSound();
+        }, 300000); 
+    }
+}
 
 function currentTime() {
     var date = new Date();
