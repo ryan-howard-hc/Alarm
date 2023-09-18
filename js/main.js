@@ -64,24 +64,30 @@ function currentTime() {
     var hour = date.getHours(); // 0-23
     var minute = date.getMinutes(); // 0-59
     var second = date.getSeconds(); // 0-59
-    var session = "AM";
 
+    // Check if military time is enabled, and format accordingly
     if (!isMilitaryTime) {
+        var session = "AM";
         if (hour >= 12) {
             session = "PM";
             if (hour > 12) {
                 hour = hour - 12;
             }
         }
+        hour = (hour < 10) ? "0" + hour : hour;
+        minute = (minute < 10) ? "0" + minute : minute;
+        second = (second < 10) ? "0" + second : second;
+        var time = hour + ":" + minute + ":" + second + " " + session;
+    } else {
+        hour = (hour < 10) ? "0" + hour : hour;
+        minute = (minute < 10) ? "0" + minute : minute;
+        second = (second < 10) ? "0" + second : second;
+        var time = hour + "" + minute + "" + second;
     }
 
-    hour = (hour < 10) ? "0" + hour : hour;
-    minute = (minute < 10) ? "0" + minute : minute;
-    second = (second < 10) ? "0" + second : second;
     day = (day < 10) ? "0" + day : day;
     month = (month < 10) ? "0" + month : month;
 
-    var time = hour + ":" + minute + ":" + second + " " + session;
     var time2 = month + "/" + day + "/" + year;
 
     document.getElementById("Timer").innerText = time;
@@ -101,23 +107,6 @@ document.getElementById("setAlarmButton").addEventListener("click", function() {
 document.getElementById("militarytime").addEventListener("click", function() {
     toggleMilitaryTime();
 });
-
-
-
-function convertToMilitaryTime(time) {
-    var session = time.slice(-2);
-    var timeWithoutSession = time.slice(0, -3);
-    var [hour, minute] = timeWithoutSession.split(":");
-
-    if (session === "PM" && hour !== "12") {
-        hour = String(Number(hour) + 12);
-    } else if (session === "AM" && hour === "12") {
-        hour = "00";
-    }
-
-    return hour.padStart(2, '0') + minute.padStart(2, '0') ;
-}
-
 
 
 console.log("Script loaded");
