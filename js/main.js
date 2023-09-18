@@ -48,6 +48,25 @@ function toggleAnalogClock() {
     isAnalogClockVisible = !isAnalogClockVisible; 
 }
 
+function updateAnalogClock() {
+    var date = new Date();
+    var hours = date.getHours() % 12; 
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+
+    var hourDegrees = (360 / 12) * hours + (360 / 12) * (minutes / 60);
+    var minuteDegrees = (360 / 60) * minutes + (360 / 60) * (seconds / 60);
+    var secondDegrees = (360 / 60) * seconds;
+
+    document.getElementById("hourHand").style.transform = `rotate(${hourDegrees}deg)`;
+    document.getElementById("minuteHand").style.transform = `rotate(${minuteDegrees}deg)`;
+    document.getElementById("secondHand").style.transform = `rotate(${secondDegrees}deg)`;
+}
+
+updateAnalogClock();
+
+setInterval(updateAnalogClock, 1000);
+
 
 var isMilitaryTime = false; // Default to 12-hour format
 

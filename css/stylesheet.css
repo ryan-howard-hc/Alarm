@@ -9,28 +9,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; 
-  }
-  
-  #analogClock {
+    height: 100%;
+    color: black;
+}
+
+#analogClock {
     display: none;
-  }
+}
+
+
+
 
 button {
-    border-radius: 15px; 
-    font-size: 1.5em; 
+    border-radius: 15px;
+    font-size: 1.5em;
     padding: 10px 20px;
-    cursor: pointer; 
+    cursor: pointer;
     margin-bottom: 10px;
 }
 
-input[type="text"], input[type="time"] {
-    border-radius: 15px; 
+input[type="text"],
+input[type="time"] {
+    border-radius: 15px;
     font-size: 1.5em;
-    padding: 10px; 
+    padding: 10px;
 }
 
-h1{
+h1 {
     text-align: center;
     font-size: xx-large;
     font: 900;
@@ -41,12 +46,14 @@ body {
 }
 
 
- .timer{ /* THE CLASS FOR TIME*/
+.timer {
+    /* THE CLASS FOR TIME*/
     font-family: fantasy;
     letter-spacing: 25px;
 }
 
-.time2 { /*THE CLASS FOR DATE*/
+.time2 {
+    /*THE CLASS FOR DATE*/
     font-family: fantasy;
     letter-spacing: 20px;
 
@@ -55,9 +62,8 @@ body {
 
 
 #analogClock {
-    display: none; /* Initially hide the analog clock */
-    /* Add your analog clock styles here */
-    background-color: white; /* Set a background color */
+    display: none; 
+    background-color: white;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -70,7 +76,9 @@ body {
     position: absolute;
 }
 
-#hourHand, #minuteHand, #secondHand {
+#hourHand,
+#minuteHand,
+#secondHand {
     position: absolute;
     transform-origin: center bottom;
     background-color: black;
@@ -99,5 +107,71 @@ body {
     top: 15%;
     left: 50%;
     margin-left: -0.5px;
-    background-color: red; /* Change the second hand color */
+    background-color: red; 
 }
+.number {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#number12 {
+    top: 4%;
+    left: 46%;
+}
+
+#number1 {
+    top: 9%;
+    left: 69%;
+}
+
+#number2 {
+    top: 25%;
+    left: 83%;
+}
+
+#number3 {
+    top: 44%;
+    right: 7%;
+}
+
+#number4 {
+    top: 65%;
+    right: 12%;
+}
+
+#number5 {
+    bottom: 9%;
+    right: 27%;
+}
+
+#number6 {
+    bottom: 4%;
+    right: 48%;
+}
+
+#number7 {
+    bottom: 9%;
+    left: 27%;
+}
+
+#number8 {
+    bottom: 25%;
+    left: 12%;
+}
+
+#number9 {
+    bottom: 45%;
+    left: 6%;
+}
+
+#number10 {
+    bottom: 65%;
+    left: 10%;
+}
+
+#number11 {
+    top: 9%;
+    left: 24%;
+}
+
