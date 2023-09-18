@@ -48,24 +48,33 @@ function toggleAnalogClock() {
     isAnalogClockVisible = !isAnalogClockVisible; 
 }
 
+
+var isMilitaryTime = false; // Default to 12-hour format
+
+function toggleMilitaryTime() {
+    isMilitaryTime = !isMilitaryTime; // Toggle the state
+    currentTime(); // Update the displayed time immediately
+}
+
 function currentTime() {
     var date = new Date();
     var year = date.getFullYear();
-    var month = date.getMonth() + 1; // 1-12 (January is 1)
+    var month = date.getMonth() + 1; // 1-12 (January is 0)
     var day = date.getDate(); // 1-31
     var hour = date.getHours(); // 0-23
     var minute = date.getMinutes(); // 0-59
     var second = date.getSeconds(); // 0-59
     var session = "AM";
 
-    if (hour >= 12) {
-        session = "PM";
-        if (hour > 12) {
-            hour = hour - 12;
+    if (!isMilitaryTime) {
+        if (hour >= 12) {
+            session = "PM";
+            if (hour > 12) {
+                hour = hour - 12;
+            }
         }
     }
 
-    // Ensure hour is displayed with leading zero if needed
     hour = (hour < 10) ? "0" + hour : hour;
     minute = (minute < 10) ? "0" + minute : minute;
     second = (second < 10) ? "0" + second : second;
@@ -83,7 +92,6 @@ function currentTime() {
 };
 
 currentTime();
-
 setInterval(1000);
 
 document.getElementById("setAlarmButton").addEventListener("click", function() {
@@ -94,13 +102,7 @@ document.getElementById("militarytime").addEventListener("click", function() {
     toggleMilitaryTime();
 });
 
-function toggleMilitaryTime() {
-    var timerElement = document.getElementById("Timer");
-    var time = timerElement.textContent;
 
-    var militaryTime = convertToMilitaryTime(time);
-    timerElement.innerText = militaryTime;
-}
 
 function convertToMilitaryTime(time) {
     var session = time.slice(-2);
@@ -113,7 +115,7 @@ function convertToMilitaryTime(time) {
         hour = "00";
     }
 
-    return hour.padStart(2, '0') + minute.padStart(2, '0');
+    return hour.padStart(2, '0') + minute.padStart(2, '0') ;
 }
 
 
