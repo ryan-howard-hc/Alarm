@@ -48,45 +48,38 @@ function toggleAnalogClock() {
     isAnalogClockVisible = !isAnalogClockVisible; 
 }
 
-
 function currentTime() {
     var date = new Date();
     var year = date.getFullYear();
-    var month = date.getMonth() + 1; //0-12 DONT KNOW WHY THE +1 is needed?
-    var day = date.getDate(); //0-31
-    var hour = date.getHours(); //0-23
-    var minute = date.getMinutes(); //0-59
-    var second = date.getSeconds(); //0-59
+    var month = date.getMonth() + 1; // 1-12 (January is 1)
+    var day = date.getDate(); // 1-31
+    var hour = date.getHours(); // 0-23
+    var minute = date.getMinutes(); // 0-59
+    var second = date.getSeconds(); // 0-59
     var session = "AM";
-    var military = false; //no am or pm, just a number/date
 
-
-
-    if (hour == 0) { //AM
-        hour = 12;
-    }
-
-    if (hour > 12) {      // If not AM, PM
-        hour = hour - 12;
+    if (hour >= 12) {
         session = "PM";
+        if (hour > 12) {
+            hour = hour - 12;
+        }
     }
 
-    hour = (hour < 10) ? "0" + hour : hour;             // under 10, adds 0 to format
-    minute = (minute < 10) ? "0" + minute : minute;     // ASK JUSTIN/MICHAEL WHY
+    // Ensure hour is displayed with leading zero if needed
+    hour = (hour < 10) ? "0" + hour : hour;
+    minute = (minute < 10) ? "0" + minute : minute;
     second = (second < 10) ? "0" + second : second;
     day = (day < 10) ? "0" + day : day;
     month = (month < 10) ? "0" + month : month;
-
 
     var time = hour + ":" + minute + ":" + second + " " + session;
     var time2 = month + "/" + day + "/" + year;
 
     document.getElementById("Timer").innerText = time;
     document.getElementById("Timer").textContent = time;
-    document.getElementById("time2").innerText = time2
+    document.getElementById("time2").innerText = time2;
     document.getElementById("time2").textContent = time2;
     setTimeout(currentTime, 1000);
-
 };
 
 currentTime();
@@ -112,7 +105,7 @@ function toggleMilitaryTime() {
 function convertToMilitaryTime(time) {
     var session = time.slice(-2);
     var timeWithoutSession = time.slice(0, -3);
-    var [hour, minute, second] = timeWithoutSession.split(":");
+    var [hour, minute] = timeWithoutSession.split(":");
 
     if (session === "PM" && hour !== "12") {
         hour = String(Number(hour) + 12);
@@ -120,8 +113,9 @@ function convertToMilitaryTime(time) {
         hour = "00";
     }
 
-    return hour + ":" + minute + ":" + second;
+    return hour.padStart(2, '0') + minute.padStart(2, '0');
 }
+
 
 
 console.log("Script loaded");
